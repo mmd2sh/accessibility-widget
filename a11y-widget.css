@@ -1,0 +1,123 @@
+.a11y-menu-wrap ~ input {
+    display: none;
+}
+
+.a11y-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 40px;
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(0, #29f39a, #009ffc);
+    box-shadow: 0 0 5px rgb(0 119 15 / 50%);
+    text-shadow: 1px 1px 5px #084d00;
+    transition: .3s;
+    position: fixed;
+    z-index: 99999;
+    bottom: 20px;
+    right: 20px;
+}
+
+.a11y-menu-btn:hover {
+    color: #333;
+    transform: scale(1.1);
+    text-shadow: none;
+}
+
+.a11y-menu-box {
+    width: 370px;
+    border-radius: 10px;
+    border: 2px solid #6c7ae0;
+    background: #fff;
+    transform: translate(100%, 100%);
+    pointer-events: none;
+    transition: .3s;
+    position: fixed;
+    z-index: 9999999;
+    opacity: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.a11y-menu-box.box-active {
+    transform: translate(0);
+    pointer-events: auto;
+    opacity: 1;
+    bottom: 10px;
+    right: 10px;
+}
+
+.a11y-menu-box-header {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px;
+    background: #6c7ae0;
+}
+
+.a11y-menu-box-close {
+    color: #fff !important;
+    margin-inline-start: auto;
+}
+
+.a11y-menu-box-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.a11y-menu-box-item {
+	position: relative;
+}
+
+.a11y-menu-box-item a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 66px;
+	color: #6c7ae0;
+	font-size: 18px;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+	border: 2px solid #6c7ae0;
+	user-select: none;
+	transition: .3s;
+}
+
+.a11y-menu-box-item a:hover {
+	background: #6c7ae0;
+}
+
+.a11y-menu-box-item a:hover {
+	color: #fff;
+}
+
+.a11y-menu-box-item i {
+	display: block;
+	margin: 5px;
+}
+
+#a11yTextColorPicker {
+	pointer-events: none;
+	position: absolute;
+	visibility: hidden;
+	bottom: 0;
+}
+
+html:root.a11y-contrast-dark [class] [class] [class] [class] :where(*, ::before, ::after):not(&),
+html:root.a11y-contrast-dark :where(*, ::before, ::after):not(&) {
+    color: #fff !important;
+    border-color: #fff !important;
+    background-color: #000 !important;
+    box-shadow: none !important;
+}
