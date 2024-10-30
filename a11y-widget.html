@@ -1,0 +1,70 @@
+<div class="a11y-menu-wrap">
+  
+    <a class="a11y-menu-btn">
+        <i class="fal fa-universal-access"></i>
+    </a>
+    
+    <div class="a11y-menu-box" >
+        <header class="a11y-menu-box-header">
+            <div>منوی دسترسی</div>
+            <a class="a11y-menu-box-close"><i class="fa fa-times"></i></a>
+        </header>
+        
+        <ul class="a11y-menu-box-list">
+            <li class="a11y-menu-box-item">
+                <a onclick="a11y.contrast()">
+                    <i class="fa fa-adjust"></i>
+                    کنتراست
+                </a>
+            </li>
+            <li class="a11y-menu-box-item">
+                <a onclick="$(this).siblings('input').click()">
+                    <i class="fa fa-paint-brush-alt"></i>
+                    رنگ متن
+                </a>
+                <input type="color" id="a11yTextColorPicker" list="a11yTextColorPresets" oninput="a11y.textColor()">
+                <datalist id="a11yTextColorPresets">
+                  <option value="#ff0000"/>
+                  <option value="#00ff00"/>
+                  <option value="#0000ff"/>
+                </datalist>
+            </li>
+            <li class="a11y-menu-box-item">
+                <a onclick="a11y.textSize()">
+                    <i class="fa fa-text-size"></i>
+                    اندازه متن
+                </a>
+            </li>
+            <li class="a11y-menu-box-item">
+                <a onclick="a11y.pageSize()">
+                    <i class="fas fa-sort-size-up-alt"></i>
+                    اندازه صفحه
+                </a>
+            </li>
+            <li class="a11y-menu-box-item">
+                <a onclick="a11y.pageSize()">
+                    <i class="fas fa-images"></i>
+                    نمایش عکس
+                </a>
+            </li>
+            <li class="a11y-menu-box-item">
+                <a onclick="a11y.pageSize()">
+                    <i class="fas fa-link"></i>
+                    نمایش پیوندها
+                </a>
+            </li>
+            <li class="a11y-menu-box-item">
+                <a onclick="a11y.pageSize()">
+                    <i class="fas fa-line-height"></i>
+                    ارتفاع متن
+                </a>
+            </li>
+            <li class="a11y-menu-box-item">
+                <a onclick="a11y.pageSize()">
+                    <i class="fas fa-text-width"></i>
+                    فاصله ی حروف
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
