@@ -1,10 +1,20 @@
 <div class="a11y-menu-wrap">
-  
+    <ul class="a11y-options" hidden dir="ltr">
+        <!-- {{content}} -->
+        <li>
+            <input type="hidden" id="a11y-widgetPos"      value="{{widgetPos.0.id}}">
+            <input type="hidden" id="a11y-cornerMargin"   value="{{cornerMargin}}">
+            <input type="hidden" id="a11y-themeColor"     value="{{themeColor}}">
+            <input type="hidden" id="a11y-detailUrl"      value="{{Dourtal.Defaults.Detail_Url_Token}}">
+            <input type="hidden" id="a11y-moduleId"       value="{{Dourtal.Defaults.Module_Id_Token}}">
+        </li>
+    </ul>
+    
     <a class="a11y-menu-btn">
         <i class="fal fa-universal-access"></i>
     </a>
     
-    <div class="a11y-menu-box" >
+    <div class="a11y-menu-box">
         <header class="a11y-menu-box-header">
             <div>منوی دسترسی</div>
             <a class="a11y-menu-box-close"><i class="fa fa-times"></i></a>
