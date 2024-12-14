@@ -2,6 +2,7 @@
     display: none;
 }
 
+/* btn */
 .a11y-menu-btn {
     display: flex;
     align-items: center;
@@ -18,8 +19,29 @@
     transition: .3s;
     position: fixed;
     z-index: 99999;
-    bottom: 20px;
-    right: 20px;
+    bottom: var(--cornerMargin, 20px);
+    right: var(--cornerMargin, 20px);
+}
+
+.a11y-TopRight .a11y-menu-btn {
+    top: var(--cornerMargin, 20px);
+    right: var(--cornerMargin, 20px);
+    bottom: auto;
+    left: auto;
+}
+
+.a11y-TopLeft .a11y-menu-btn {
+    top: var(--cornerMargin, 20px);
+    right: auto;
+    bottom: auto;
+    left: var(--cornerMargin, 20px);
+}
+
+.a11y-BottomLeft .a11y-menu-btn {
+    top: auto;
+    right: auto;
+    bottom: var(--cornerMargin, 20px);
+    left: var(--cornerMargin, 20px);
 }
 
 .a11y-menu-btn:hover {
@@ -28,41 +50,94 @@
     text-shadow: none;
 }
 
+.a11y-menu-wrap .a11y-menu-settings {
+    color: #fff;
+    padding: 5px 10px;
+}
+
+/* box */
 .a11y-menu-box {
     width: 370px;
     border-radius: 10px;
-    border: 2px solid #6c7ae0;
+    border: 2px solid var(--themeColor, #6c7ae0);
     background: #fff;
     transform: translate(100%, 100%);
-    pointer-events: none;
-    transition: .3s;
+	pointer-events: none;
+	transition: .3s;
     position: fixed;
     z-index: 9999999;
-    opacity: 0;
+	opacity: 0;
     bottom: 0;
     right: 0;
 }
 
-.a11y-menu-box.box-active {
-    transform: translate(0);
-    pointer-events: auto;
-    opacity: 1;
-    bottom: 10px;
-    right: 10px;
+.a11y-TopRight .a11y-menu-box {
+    transform: translate(100%, -100%);
+    top: var(--cornerMargin, 20px);
+    right: var(--cornerMargin, 20px);
+    bottom: auto;
+    left: auto;
 }
 
+.a11y-TopLeft .a11y-menu-box {
+    transform: translate(-100%, -100%);
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+}
+
+.a11y-BottomLeft .a11y-menu-box {
+    transform: translate(-100%, 100%);
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+}
+
+/* active box */
+.a11y-menu-box.box-active {
+    transform: translate(0);
+	pointer-events: auto;
+	opacity: 1;
+    bottom: var(--cornerMargin, 20px);;
+    right: var(--cornerMargin, 20px);;
+}
+
+.a11y-TopRight .a11y-menu-box.box-active {
+    top: var(--cornerMargin, 20px);
+    right: var(--cornerMargin, 20px);
+    bottom: auto;
+    left: auto;
+}
+
+.a11y-TopLeft .a11y-menu-box.box-active {
+    top: var(--cornerMargin, 20px);
+    right: auto;
+    bottom: auto;
+    left: var(--cornerMargin, 20px);
+}
+
+.a11y-BottomLeft .a11y-menu-box.box-active {
+    top: auto;
+    right: auto;
+    bottom: var(--cornerMargin, 20px);
+    left: var(--cornerMargin, 20px);
+}
+
+/* header */
 .a11y-menu-box-header {
     display: flex;
     align-items: center;
     color: #fff;
     font-size: 20px;
     padding: 15px;
-    background: #6c7ae0;
+    background: var(--themeColor, #6c7ae0);
 }
 
 .a11y-menu-box-close {
-    color: #fff !important;
-    margin-inline-start: auto;
+	color: #fff !important;
+	margin-inline-start: auto;
 }
 
 .a11y-menu-box-list {
@@ -84,18 +159,18 @@
 	align-items: center;
 	justify-content: center;
 	height: 66px;
-	color: #6c7ae0;
+	color: var(--themeColor, #6c7ae0);
 	font-size: 18px;
 	text-align: center;
 	padding: 10px;
 	border-radius: 10px;
-	border: 2px solid #6c7ae0;
+	border: 2px solid var(--themeColor, #6c7ae0);
 	user-select: none;
 	transition: .3s;
 }
 
 .a11y-menu-box-item a:hover {
-	background: #6c7ae0;
+	background: var(--themeColor, #6c7ae0);
 }
 
 .a11y-menu-box-item a:hover {
@@ -114,10 +189,36 @@
 	bottom: 0;
 }
 
-html:root.a11y-contrast-dark [class] [class] [class] [class] :where(*, ::before, ::after):not(&),
-html:root.a11y-contrast-dark :where(*, ::before, ::after):not(&) {
-    color: #fff !important;
-    border-color: #fff !important;
-    background-color: #000 !important;
-    box-shadow: none !important;
+/* contrast modes */
+.a11y-contrast-dark {
+    --fg: white;
+    --bg: black;
+}
+
+.a11y-contrast-yellow {
+    --fg: yellow;
+    --bg: black;
+}
+
+.a11y-contrast-cyan {
+    --fg: cyan;
+    --bg: black;
+}
+
+.a11y-contrast-light {
+    --fg: black;
+    --bg: white;
+}
+
+@media (min-width: 0px) {
+    @supports (display: block) {
+        html:root[class*=a11y-contrast] *,
+        html:root[class*=a11y-contrast] ::after,
+        html:root[class*=a11y-contrast] ::before {
+            color: var(--fg) !important;
+            border-color: var(--fg) !important;
+            background: var(--bg) !important;
+            box-shadow: none !important;
+        }
+    }
 }
